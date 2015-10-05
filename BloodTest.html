@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Tangle document</title>
+
+	<!-- Tangle -->
+	<script type="text/javascript" src="Tangle.js"></script>
+
+	<!-- TangleKit (optional) -->
+	<link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+	<script type="text/javascript" src="TangleKit/mootools.js"></script>
+	<script type="text/javascript" src="TangleKit/sprintf.js"></script>
+	<script type="text/javascript" src="TangleKit/BVTouchable.js"></script>
+	<script type="text/javascript" src="TangleKit/TangleKit.js"></script>
+
+	<script type="text/javascript">
+
+		function setUpTangle () {
+
+			var element = document.getElementById("example");
+
+			var tangle = new Tangle(element, {
+				initialize: function () {
+					this.bloodGiven = 2;
+					this.donationYears = 1;
+				},
+				update: function () {
+					this.people = this.bloodGiven * 3 * this.donationYears;
+				}
+			});
+		}
+
+	</script>
+
+</head>
+
+<body onload="setUpTangle();">
+
+	<p>Example for <b>Zombie Blood Drive</b>.</p>
+
+	<p id="example">
+		<!-- If you donate <span data-var="bloodGiven" class="TKAdjustableNumber" data-min="1" data-max="385"> pints of blood </span>
+		over your lifetime, you will potentially save <span data-var="people"></span> lives.
+ -->
+		If you donate <span data-var="bloodGiven" class="TKAdjustableNumber" data-min="1" data-max="6"> times a year </span> for 
+		<span data-var="donationYears" class="TKAdjustableNumber" data-min="1" data-max="70"> years </span> you have the potential
+		to save <span data-var="people"></span> lives.
+
+		<!-- When you eat <span data-var="cookies" class="TKAdjustableNumber" data-min="2" data-max="100"> cookies</span>, you
+		will consume <span data-var="calories"></span> calories. -->
+	</p>
+
+</body>
+</html>
